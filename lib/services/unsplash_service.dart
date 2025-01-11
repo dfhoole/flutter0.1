@@ -74,4 +74,17 @@ class UnsplashService {
       throw Exception('Failed to load image list');
     }
   }
+
+  Future<void> trackDownload(String imageId) async {
+    final response = await http.get(
+      Uri.parse('$_baseUrl/photos/$imageId/download'),
+      headers: {
+        'Authorization': 'Client-ID $_accessKey',
+      },
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to track download');
+    }
+  }
 }

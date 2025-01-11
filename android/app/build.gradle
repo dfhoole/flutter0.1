@@ -24,6 +24,15 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        // Enable WebP support
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
+    }
+
+    aaptOptions {
+        // Enable WebP support
+        additionalParameters "--no-version-vectors"
     }
 
     buildTypes {
